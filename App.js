@@ -1,63 +1,19 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image, Button } from "react-native";
-
+import React from "react";
+import { SafeAreaView, View, Image } from "react-native";
+import CustomButton from "./tombol";
+import Teks from "./text";
 
 export default function App() {
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: "white",
-        justifyContent: "center",
-        alignItems: "flex-end",
-        flexDirection: "row",
-        paddingBottom: 20,
-      }}
-    >
-      <View
-        style={{
-          backgroundColor: "red",
-          width: 100,
-          height: 50,
-          margin: 10,
-          borderRadius: 10,
-          justifyContent: "center",
-        }}
-      >
-        <Text
-          style={{
-            color: "white",
-            textAlign: "center",
-            fontSize: 20,
-            fontWeight: "bold",
-            shadowColor: "black",
-          }}
-        >
-          Login
-        </Text>
+    <SafeAreaView style={{ flex: 1, backgroundColor: 'white'}}>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Teks />
+        <Image
+          source={require('./assets/bmth.png')}
+          style={{ width: 300, height: 300, marginVertical: 90 }}
+          />
+        <CustomButton />
       </View>
-
-      <View
-        style={{
-          backgroundColor: "blue",
-          width: 100,
-          height: 50,
-          margin: 10,
-          borderRadius: 10,
-          justifyContent: "center",
-        }}
-      >
-        <Text
-          style={{
-            color: "white",
-            textAlign: "center",
-            fontSize: 20,
-            fontWeight: "bold",
-          }}
-        >
-          Register
-        </Text>
-      </View>
-    </View>
+    </SafeAreaView>
   );
 }
