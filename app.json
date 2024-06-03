@@ -3,6 +3,14 @@
     "name": "lab",
     "slug": "lab",
     "version": "1.0.0",
+    "plugins": [
+      [
+        "expo-font",
+        {
+          "fonts": ["path/to/file.ttf"]
+        }
+      ]
+    ],
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",

@@ -1,11 +1,11 @@
 import React from "react";
 import { View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Heading from "./component/heading";
-import InputText from "./component/inputText";
-import Konfirmasi from "./component/konfirmasi";
-import ButtonComponent from "./component/button";
-import IconButton from "./component/iconButton";
+import Heading from "../component/heading";
+import InputText from "../component/inputText";
+import Konfirmasi from "../component/konfirmasi";
+import ButtonComponent from "../component/button";
+import IconButton from "../component/iconButton";
 
 const Login = () => {
     return (
