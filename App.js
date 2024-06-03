@@ -24,6 +24,7 @@ const App = () => {
       <Text style={styles.boldText}>Metro Bold</Text>
       <Text style={styles.semiboldText}>Metro SemiBold</Text>
       <Text style={styles.blackText}>Metro Black</Text>
+      <Text style={styles.blackText}>Metro Medium</Text>
     </View>
   );
 };
