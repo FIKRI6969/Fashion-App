@@ -22,7 +22,6 @@ const App = () => {
     <View style={styles.container}>
       <Text style={styles.defaultText}>Hello There</Text>
       <Text style={styles.boldText}>Metro Bold</Text>
-      <Text style={styles.mediumText}>Metro Light</Text>
       <Text style={styles.semiboldText}>Metro SemiBold</Text>
       <Text style={styles.blackText}>Metro Black</Text>
     </View>
