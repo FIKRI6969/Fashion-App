@@ -1,17 +1,17 @@
 import React from "react";
+import { View, Text } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
-import Heading from "../component/heading";
-import InputText from "../component/inputText";
-import ButtonComponent from "../component/button";
-import Konfirmasi from "../component/konfirmasi";
-import { View } from "react-native";
+import Heading from "../component/Heading";
+import Konfirmasi from "../component/Konfirmasi";
+import InputText from "../component/InputText";
+import ButtonComponent from "../component/Button";
 
 const ForgetPassword = () => {
     return (
         <SafeAreaView>
             <View>
                 <View style={{
-                    marginTop: 100
+                    marginTop: 40
                 }}>
                     <Heading text="Forget Password" />
                 </View>

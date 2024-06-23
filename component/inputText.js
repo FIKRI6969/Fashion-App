@@ -1,35 +1,50 @@
 import React from "react";
-import { View, StyleSheet, TextInput } from "react-native";
+import { View, StyleSheet, TextInput, Text } from "react-native";
+import { useFonts } from "expo-font";
 
 const InputText = ({ placeholder, borderColor, placeholderTextColor }) => {
+    const [fontsLoaded] = useFonts({
+        
+        'Medium': require('../fonts/Metropolis-Medium.otf'),
+       
+    });
+    if (!fontsLoaded) {
+        return (
+            <View>
+                <Text>Font tidak ditemukan!</Text>
+            </View>
+        );
+    }
+
     return (
         <View style={styles.container}>
-            <TextInput
+        <TextInput
             placeholder={placeholder}
             placeholderTextColor={placeholderTextColor}
-            style={[styles.input, {borderColor}]}/>
-        </View>
-    )
+            style={[styles.input, { borderColor, fontFamily: 'Medium' }]}
+        />
+    </View>
+    );
 };
 
 const styles = StyleSheet.create({
     container: {
-        alignItems: 'center',
         marginTop: 10,
+        alignItems: 'center',
     },
-
     input: {
-        width: 343,
+        backgroundColor: 'white',
         height: 64,
-        borderRadius: 4,
+        width: 343,
         borderWidth: 1,
         paddingHorizontal: 8,
-        backgroundColor: 'white',
+        borderRadius: 4,
+        fontFamily: 'Medium',
     },
-
-    text: {
-        fontSize: 16
-    }
+    errorText: {
+        fontSize: 16,
+        color: 'red',
+    },
 });
 
 export default InputText;

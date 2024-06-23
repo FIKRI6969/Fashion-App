@@ -1,12 +1,12 @@
-import React from "react";
-import { View, StyleSheet, Image } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import React from 'react';
+import { View, Image, StyleSheet } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-const IconButton = ({ ImageSource}) => {
+const IconButton = ({ imageSource }) => {
     return (
         <SafeAreaView>
         <View style={styles.container}>
-            <Image source={ImageSource} style={styles.image}/>
+            <Image source={imageSource} style={styles.image} />
         </View>
         </SafeAreaView>
     );
@@ -17,21 +17,24 @@ const styles = StyleSheet.create({
         width: 92,
         height: 64,
         marginTop: -5,
-        justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'white',
+        justifyContent: 'center',
+        backgroundColor: 'rgba(255, 255, 255, 1)',
         borderRadius: 24,
-        shadowColor: 'black',
-        shadowOffset: { width: 0, height: 4 },
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
         shadowOpacity: 0.30,
         shadowRadius: 4.65,
-        elevation: 2,
-    },
+        elevation: 2
 
+    },
     image: {
         width: 30,
         height: 30,
-    }
+    },
 });
 
 export default IconButton;

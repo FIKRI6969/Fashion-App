@@ -1,63 +1,22 @@
-import { StyleSheet, Text, View } from 'react-native';
-import React from 'react';
-import { useFonts } from 'expo-font';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const App = () => {
-  const [fontsLoaded, fontError] = useFonts({
-    'Metro-Bold': require('./assets/fonts/Metropolis-Bold.otf'),
-    'Metro-Medium': require('./assets/fonts/Metropolis-Medium.otf'),
-    'Metro-Semibold': require('./assets/fonts/Metropolis-SemiBold.otf'),
-    'Metro-Black': require('./assets/fonts/Metropolis-Black.otf'),
-  });
+import Login from './pages/Login';
+import ForgetPassword from './pages/ForgetPassword';
+import SignUp from './pages/SignUp';
 
-  if (!fontsLoaded) {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.errorText}>Font tidak ditemukan!</Text>
-      </View>
-    );
-  }
-
+const Stack = createNativeStackNavigator();
+function App() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.defaultText}>Hello There</Text>
-      <Text style={styles.boldText}>Metro Bold</Text>
-      <Text style={styles.semiboldText}>Metro SemiBold</Text>
-      <Text style={styles.blackText}>Metro Black</Text>
-      <Text style={styles.blackText}>Metro Medium</Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="SignUp" component={SignUp} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="ForgetPassword" component={ForgetPassword} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  errorText: {
-    fontSize: 24,
-    color: 'red',
-  },
-  defaultText: {
-    fontSize: 30,
-  },
-  boldText: {
-    fontFamily: 'Metro-Bold',
-    fontSize: 30,
-  },
-  mediumText: {
-    fontFamily: 'Metro-Medium',
-    fontSize: 30,
-  },
-  semiboldText: {
-    fontFamily: 'Metro-Semibold',
-    fontSize: 30,
-  },
-  blackText: {
-    fontFamily: 'Metro-Black',
-    fontSize: 30,
-  },
-});
 
 export default App;

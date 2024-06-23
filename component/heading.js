@@ -1,22 +1,34 @@
 import React from "react";
 import { View, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useFonts } from "expo-font";
 
 const Heading = ({ text }) => {
+    const [fontsLoaded] = useFonts({
+        'Medium': require('../fonts/Metropolis-Medium.otf'),
+    });
+
+    if (!fontsLoaded) {
+        return (
+            <View>
+                <Text>Font tidak ditemukan!</Text>
+            </View>
+        );
+    }
+
     return (
         <SafeAreaView>
-        <View style={{
-            marginLeft: 20,
-            marginBottom: 20,
-            alignItems: 'Right'
-        }}>
-            <Text style={{
-                fontSize: 34,
-                fontWeight: 'bold',
+            <View style={{
+                alignItems: 'right',
+                marginLeft: 20
             }}>
-            {text}
-            </Text>
-        </View>
+                <Text style={{
+                    fontSize: 34,
+                    fontFamily: 'Medium',
+                }}>
+                    {text}
+                </Text>
+            </View>
         </SafeAreaView>
     )
 };

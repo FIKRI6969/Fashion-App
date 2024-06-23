@@ -1,59 +1,62 @@
 import React from "react";
-import { View } from "react-native";
+import { View, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Heading from "../component/heading";
-import InputText from "../component/inputText";
-import Konfirmasi from "../component/konfirmasi";
-import ButtonComponent from "../component/button";
-import IconButton from "../component/iconButton";
+import { useNavigation } from "@react-navigation/native";
+import Heading from "../component/Heading";
+import InputText from "../component/InputText";
+import Konfirmasi from "../component/Konfirmasi";
+import ButtonComponent from "../component/Button";
+import IconButton from "../component/IconButton";
 
 const SignUp = () => {
+    const navigation = useNavigation();
     return (
         <SafeAreaView>
             <View style={{
-                marginTop: 100,
+                marginTop: 30,
             }}>
                 <Heading text="Sign up" />
             </View>
 
             <View style={{}}>
-                <InputText placeholder="Name" borderColor={"#9B9B9B"} placeholderTextColor={"#9B9B9B"}/>
-                <InputText placeholder="Email" borderColor={"#9B9B9B"} placeholderTextColor={"#9B9B9B"}/>
-                <InputText placeholder="Password" borderColor={"#9B9B9B"} placeholderTextColor={"#9B9B9B"}/>
+                <InputText placeholder="Name" />
+                <InputText placeholder="Email" />
+                <InputText placeholder="Password" />
             </View>
 
             <View style={{
                 marginLeft: 170,
-                alignItems: 'center',
-                marginTop: 10,
+                marginTop: -5,
 
             }}>
-                <Konfirmasi text="Alredy have an account?"/>
+                <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+                <Konfirmasi text="Alredy have an account?" fontSize={14}/>
+                </TouchableOpacity>
             </View>
 
             <View style={{
-                marginTop: 5
+                marginTop: -10
             }}>
                 <ButtonComponent backgroundColor="blue" text="SIGN UP"/>
             </View>
 
             <View style={{
-                marginTop: 150,
-                alignItems: 'center'
+                marginTop: -60
             }}>
-                <Konfirmasi text="Sign up with"/>
+                <Konfirmasi text="Sign up with" fontSize={14}/>
             </View>
 
             <View style={{
-                marginTop: 20
+                marginTop: -10
             }}>
                 <View style={{
                     flexDirection: 'row',
                     justifyContent: 'center',
-                    gap: 20
+                    gap: 20,
+                    marginTop: 10
                 }}>
-                    <IconButton ImageSource={require('./Image/google.png')}/>
-                    <IconButton ImageSource={require('./Image/facebook.png')}/>
+                    <IconButton imageSource={require('../Icon/google.png')}/>
+                    <IconButton imageSource={require('../Icon/facebook.png')}/>
             </View>
             </View>
         </SafeAreaView>
