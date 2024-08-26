@@ -4,7 +4,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-
 import HomeAktif from './icon/home-activated.png';
 import HomeNonAktif from './icon/home-inactive.png';
 import ShopAktif from './icon/shop-activated.png';
@@ -18,15 +17,17 @@ import ProfilNonAktif from './icon/profil-inactive.png';
 
 import Login from './page/Login';
 import SignUp from './page/SignUp';
+import ForgotPassword from './page/ForgotPassword';
 import Home from './page/Home';
+import VisualSearch from './page/VisualSearch';
 import Shop from './page/Shop';
 import Bag from './page/Bag';
-import FavoriteScreen from './page/Favorites';
+import Favorites from './page/Favorites';
 import Profile from './page/Profile';
-import HomeMain from './page/HomeMain';
+import Camera from './page/Camera';
+import HomeMain from './HomeMain';
 import CategoriesScreen from './page/Categories';
-import Filters from './page/Filter';
-import ForgotPassword from './page/ForgotPassword';
+import FiltersScreen from './page/Filter';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -34,7 +35,7 @@ const Stack = createNativeStackNavigator();
 const HomeStack = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Home">
-      <Stack.Screen name="HomeScreen" component={Home} />
+      <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="HomeMain" component={HomeMain} />
     </Stack.Navigator>
   );
@@ -43,17 +44,8 @@ const HomeStack = () => {
 const ShopStack = () => {
   return (
     <Stack.Navigator initialRouteName="Shop">
-      <Stack.Screen name="ShopScreen" component={Shop} options={{ headerShown: false }} />
+      <Stack.Screen name="Shop" component={Shop} options={{ headerShown: false }} />
       <Stack.Screen name="Categories" component={CategoriesScreen} />
-    </Stack.Navigator>
-  );
-};
-
-const FavoriteStack = () => {
-  return (
-    <Stack.Navigator initialRouteName="Favorite">
-      <Stack.Screen name="FavoriteScreen" component={FavoriteScreen} options={{ headerShown: false }} />
-      <Stack.Screen name="Filters" component={Filters} options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 };
@@ -93,7 +85,7 @@ function MyTabs() {
       />
       <Tab.Screen
         name="Favorites"
-        component={FavoriteStack}
+        component={Favorites}
         options={{
           headerShown: false,
           tabBarIcon: ({ focused }) => (
@@ -118,13 +110,21 @@ function MyTabs() {
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="SignUp">
-        <Stack.Screen name="SignUp" component={SignUp} options={{ headerShown: false }} />
-        <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
-        <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{ headerShown: false }} />
+      <Stack.Navigator initialRouteName="Filter">
+        <Stack.Screen name="Filter" component={FiltersScreen} />
+        <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="MyTabs" component={MyTabs} options={{ headerShown: false }} />
-        <Stack.Screen name="Filters" component={Filters} />
-        <Stack.Screen name="FavoriteScreen" component={FavoriteScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="HomeMain" component={HomeMain} />
+        <Stack.Screen name="Forgot Password" component={ForgotPassword} />
+        <Stack.Screen name="VisualSearch" component={VisualSearch} />
+        <Stack.Screen name="Shop" component={Shop} />
+        <Stack.Screen name="Categories" component={CategoriesScreen} />
+        <Stack.Screen name="Bag" component={Bag} />
+        <Stack.Screen name="Favorites" component={Favorites} />
+        <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="Camera" component={Camera} />
       </Stack.Navigator>
     </NavigationContainer>
   );

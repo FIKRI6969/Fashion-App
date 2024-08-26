@@ -5,7 +5,7 @@ import { useFonts } from "expo-font";
 
 const Heading = ({ text }) => {
     const [fontsLoaded] = useFonts({
-        'Medium': require('../fonts/Metropolis-Medium.otf'),
+        'Medium': require('../font/MetropolisMedium.otf'),
     });
 
     if (!fontsLoaded) {
